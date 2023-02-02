@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Example- add rows to a table using JavaScript DOM </title>
+   <link rel="stylesheet" href="styles.css">
+   <!-- <style>
+      table,
+      td,
+      th {
+         width: 100%;
+         max-width: 100px;
+         border-collapse: separate;
+         border: 1px solid #024136;
+      }
+   </style>  -->
+</head>
+<body bgcolor="pink">
+  <!-- <div class="json">  -->
+      <h1 align="center" style="background-color:azure"><img src="cosy.jpg" width="50" height="50" alt=""> NUTRITION TABLE <img src="cosy.jpg" width="50" height="50" alt=""></h1>
+   <!-- </div> -->
+   
+   <br>
+   <table id="myTable" class="center" bgcolor="white">
+      <thead>
+         <th> Name </th>
+         <th> Energy </th>
+         <th> Protein </th>
+         <th> Carbs </th>
+         <th> Total Fat </th>
+         <th> Sugar </th>
+         <th> Added Sugars </th>
+         <th> Saturated Fat </th>
+         <th> Trans Fat </th>
+      </thead>
+      <tbody>
+         
+      </tbody>
+   </table>
+   <br><br>
+   <div align="center">
+      <button id="btn" style="background-color:rgb(0, 225, 255)" onclick="GetURL()" > Click this !! </button>
+      </div>
+</body>
+<script>
+   // hello
+
+   function GetURL() {
+        
+       
+        // Get the table element in which you want to add row
+      let table = document.getElementById("myTable");
+   
+   // Create a row using the inserRow() method and
+   // specify the index where you want to add the row
+   let row = table.insertRow(-1); // We are adding at the end
+
+   // Create table cells
+   
+   let c1 = row.insertCell(0);
+   let c2 = row.insertCell(1);
+   let c3 = row.insertCell(2);
+   let c4 = row.insertCell(3);
+   let c5 = row.insertCell(4);
+   let c6 = row.insertCell(5);
+   let c7 = row.insertCell(6);
+   let c8 = row.insertCell(7);
+   let c9 = row.insertCell(8);
+
+
+   var info = document.URL;
+   let result = info;
+   let text=result.replaceAll("=", "%7C");
+   text=text.replaceAll("%7C", " ");
+   text=text.replaceAll("  ", " ");
+   
+   const myArray = text.split(" ");
+   
+   
+   var transfat="";
+   for (var i = myArray.length - 1; i >= 0; i--) {
+          
+      
+      if(myArray[i]=="TRANSFAT")
+      {
+         
+         c9.innerText=myArray[i+1]
+        
+      }
+
+      if(myArray[i]=="ENERGY")
+      {
+         c2.innerText=myArray[i+1]
+      }
+      
+      if(myArray[i]=="PROTEIN")
+      {
+         
+         c3.innerText=myArray[i+1]
+      }
+
+      if(myArray[i]=="CARBS")
+      {
+         c4.innerText=myArray[i+1]
+      }
+
+      if(myArray[i]=="SUGARS")
+      {
+         c6.innerText=myArray[i+1]
+      }
+
+      if(myArray[i]=="TOTAL_FAT")
+      {
+         c5.innerText=myArray[i+1]
+      }
+
+      if(myArray[i]=="ADDED_SUGAR")
+      {
+         c7.innerText=myArray[i+1]
+      }
+
+      if(myArray[i]=="SATURATED_FAT")
+      {
+         c8.innerText=myArray[i+1]
+      }
+
+      if(myArray[i]=="PRODUCT_NAME")
+      {
+         var s=myArray[i+1];
+         s.replace("_"," ");
+         c1.innerText=s;
+      }
+
+   }
+          
+          
+   
+      
+}
+</script>
+</html>
